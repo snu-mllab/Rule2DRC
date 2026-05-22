@@ -1,0 +1,33 @@
+You are a senior physical verification engineer.
+Write a KLayout DRC (Ruby) runset using ONLY the KLayout DRC DSL.
+
+Task:
+{{ nl_description }}
+
+I/O (batch-friendly):
+- MUST start with:   source($input)
+- MUST report with:  report("{{ title }}", $output)
+
+Layers (GDS layer/datatype):
+{% for name, pair in layers.items() -%}
+- {{ name }} = ({{ pair[0] }}, {{ pair[1] }})
+{% endfor %}
+
+Rules / required categories:
+{% for r in rules -%}
+- {{ r.text }} → output category "{{ r.category }}"
+{% endfor %}
+
+Constraints:
+- Use explicit units (e.g., 0.14.um).
+- Use EXACT category names above (no extras).
+- No external requires. Ruby DRC only.
+- Return ONLY code in one block.
+
+Example scaffolding (structure only):
+```ruby
+source($input)
+report("{{ title }}", $output)
+# e.g., m1 = input(68, 20)
+# e.g., m1.width(0.14.um).output("CATEGORY", "desc")
+```

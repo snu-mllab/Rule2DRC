@@ -1,0 +1,37 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+out/
+out_drc/
+out_drc
+out_lyrdb/
+out_eval/
+out_gds/
+.envrc
+problems_auto_gpt5_skipped
+problems_auto_gpt5_ref
+problems_ref
+docs
+gds_pngs/
+.DS_Store
+.run_see_last.json
+.gds_cli_wrapper_last.json
+.show_gds_last.json
+gds_cli_wrapper.py
+rename.py
+problems/test/
+generator/
+refs/rag/index*
+refs/layout
+.env
+output/
+summarize*.py
+uv.lock
+problems_v5
