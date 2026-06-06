@@ -27,11 +27,16 @@ gds_pngs/
 gds_cli_wrapper.py
 rename.py
 problems/test/
+problems/
 generator/
 refs/rag/index*
 refs/layout
 .env
 output/
+hf_dataset/
 summarize*.py
 uv.lock
 problems_v5
+scripts/check_hf_materialization.py
+scripts/publish_hf_dataset.py
+README_backup.md

@@ -515,14 +515,14 @@ def parse_args() -> argparse.Namespace:
         description="Compute llm_judge scores (spec+code only; no tool execution)."
     )
     ap.add_argument("run_dir")
-    ap.add_argument("--problems-dir", default="problems_v5")
+    ap.add_argument("--problems-dir", default="problems")
     ap.add_argument("--suite-id", default=None)
     ap.add_argument("--cand-min", type=int, default=0)
     ap.add_argument("--cand-max", type=int, required=True)
 
     ap.add_argument("--model", required=True)
     ap.add_argument("--api-key", default=None)
-    ap.add_argument("--base-url", default="https://api.openai.com/v1")
+    ap.add_argument("--base-url", default="http://127.0.0.1:8000/v1")
     ap.add_argument("--reasoning-effort", type=str, default=None)
     ap.add_argument("--max-new-tokens", type=int, default=16384)
 

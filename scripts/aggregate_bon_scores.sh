@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ $# -lt 3 ]]; then
-  echo "Usage: $0 <bon_run_dir> <score_method> <pool_size> [cand_min] [cand_max] [gds_run_dir]" >&2
+if [[ $# -lt 5 ]]; then
+  echo "Usage: $0 <bon_run_dir> <score_method> <cand_min> <cand_max> <pool_size> [gds_run_dir]" >&2
   exit 2
 fi
 
 BON_RUN_DIR=$1
 SCORE_METHOD=$2
-POOL_SIZE=$3
-CAND_MIN=${4:-0}
-CAND_MAX=${5:-}
+CAND_MIN=$3
+CAND_MAX=$4
+POOL_SIZE=$5
 GDS_RUN_DIR=${6:-}
-
-if [[ -z "$CAND_MAX" ]]; then
-  CAND_MAX=$((CAND_MIN + POOL_SIZE))
-fi
 
 case "$SCORE_METHOD" in
   llm_judge)

@@ -184,7 +184,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("run_dir")
     ap.add_argument("--gds-run", required=True)
-    ap.add_argument("--problems-dir", default="problems_v5")
+    ap.add_argument("--problems-dir", default="problems")
     ap.add_argument("--suite-id", default=None)
     ap.add_argument("--eval-jobs", type=int, default=8)
     ap.add_argument("--klayout-bin", default="klayout")

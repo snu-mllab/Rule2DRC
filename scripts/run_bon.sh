@@ -6,9 +6,9 @@ RUN_TS=${RUN_TS:-$(TZ=Asia/Seoul date +%y%m%d_%H%M%S)}
 
 MODEL=${MODEL:-openai/gpt-oss-120b}
 MODEL_NAME=${MODEL##*/}
-BASE_URL=${BASE_URL:-https://api.openai.com/v1}
+BASE_URL=${BASE_URL:-http://127.0.0.1:8000/v1}
 API_KEY=${API_KEY:-${OPENAI_API_KEY:-}}
-PROBLEMS_DIR=${PROBLEMS_DIR:-problems_v5}
+PROBLEMS_DIR=${PROBLEMS_DIR:-problems}
 DOC_PATH=${DOC_PATH:-refs/klayout_docs.txt}
 JOBS=${JOBS:-200}
 EVAL_JOBS=${EVAL_JOBS:-100}

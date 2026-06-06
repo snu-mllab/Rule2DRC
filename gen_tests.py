@@ -302,11 +302,11 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
     ap.add_argument("--api-key", default=None)
-    ap.add_argument("--base-url", default="https://api.openai.com/v1")
+    ap.add_argument("--base-url", default="http://127.0.0.1:8000/v1")
     ap.add_argument("--reasoning-effort", default="medium")
     ap.add_argument("--max-new-tokens", type=int, default=16384)
 
-    ap.add_argument("--problems-dir", default="problems_v5")
+    ap.add_argument("--problems-dir", default="problems")
     ap.add_argument("--problem", action="append", default=[])
 
     ap.add_argument("--output-dir", required=True, help="Tag under out_gds/<problems_dir_name>/")

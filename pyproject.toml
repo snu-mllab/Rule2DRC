@@ -1,5 +1,5 @@
 [project]
-name = "drc-bench"
+name = "rule2drc"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"

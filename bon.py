@@ -31,7 +31,7 @@ def arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, help="OpenAI model identifier (e.g., gpt-5 or gpt-5-mini)")
     parser.add_argument("--api-key", default=None, help="OpenAI API key")
-    parser.add_argument("--base-url", default="https://api.openai.com/v1", help="Base URL for the OpenAI API")
+    parser.add_argument("--base-url", default="http://127.0.0.1:8000/v1", help="Base URL for the OpenAI API")
     parser.add_argument("--output-dir", required=True, help="Subdirectory name under out_drc/")
     parser.add_argument("--problems-dir", default="problems", help="Directory containing problems")
     parser.add_argument("--problem", action="append", default=[], help="Restrict to specific problem ids (supports prefix match)")

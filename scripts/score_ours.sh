@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ $# -lt 3 ]]; then
-  echo "Usage: $0 <bon_run_dir> <gds_run_dir> <cand_max> [cand_min] [pool_size]" >&2
+if [[ $# -lt 5 ]]; then
+  echo "Usage: $0 <bon_run_dir> <gds_run_dir> <cand_min> <cand_max> <pool_size>" >&2
   exit 2
 fi
 
 BON_RUN_DIR=$1
 GDS_RUN_DIR=$2
-CAND_MAX=$3
-CAND_MIN=${4:-0}
-POOL_SIZE=${5:-$((CAND_MAX - CAND_MIN))}
+CAND_MIN=$3
+CAND_MAX=$4
+POOL_SIZE=$5
 
 MODEL=${MODEL:-openai/gpt-oss-120b}
-BASE_URL=${BASE_URL:-https://api.openai.com/v1}
+BASE_URL=${BASE_URL:-http://127.0.0.1:8000/v1}
 API_KEY=${API_KEY:-${OPENAI_API_KEY:-}}
-PROBLEMS_DIR=${PROBLEMS_DIR:-problems_v5}
+PROBLEMS_DIR=${PROBLEMS_DIR:-problems}
 DOC_PATH=${DOC_PATH:-refs/klayout_docs.txt}
 JOBS=${JOBS:-200}
 KLAYOUT_BIN=${KLAYOUT_BIN:-klayout}

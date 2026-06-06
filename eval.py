@@ -128,7 +128,7 @@ def _eval_worker(task: tuple[int, str, str | None, str, bool]
 def main():
     t0 = time.time()
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dir", default="problems_v5", help="Directory containing problems")
+    ap.add_argument("--dir", default="problems", help="Directory containing problems")
     ap.add_argument(
         "--problem",
         action="append",
