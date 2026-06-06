@@ -12,8 +12,9 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2605.15669"><img src="https://img.shields.io/badge/arXiv-2605.15669-b31b1b.svg"></a>
+  <a href="https://jinukkim.me/blog/rule2drc/"><img src="https://img.shields.io/badge/Project-Rule2DRC-blue"></a>
   <a href="https://huggingface.co/papers/2605.15669"><img src="https://img.shields.io/badge/HF%20Papers-2605.15669-yellow"></a>
-  <a href="https://huggingface.co/datasets/jusjinuk/Rule2DRC"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-blue"></a>
+  <a href="https://huggingface.co/datasets/jusjinuk/Rule2DRC"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-green"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-orange"></a>
 </p>
 

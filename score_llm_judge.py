@@ -160,7 +160,7 @@ def _judge_kway(
         "max_completion_tokens": max_new_tokens,
     }
     if reasoning_effort:
-        if str(client.base_url) == "https://openrouter.ai/api/v1":
+        if str(client.base_url).rstrip("/") == "https://openrouter.ai/api/v1":
             params["extra_body"] = {"reasoning": {"effort": reasoning_effort}}
         else:
             params["reasoning_effort"] = reasoning_effort
