@@ -180,9 +180,22 @@ Method keys:
 
 Aggregated JSON files are saved under the BoN run directory as `bon_pool<pool_size>__<method_key>.json`, for example `out_drc/problems/{bon60_run}/bon_pool10__generated_tests_ours.json`.
 
+## Leaderboard
+
+The public leaderboard lives at [jinukkim.me/blog/rule2drc/leaderboard](https://jinukkim.me/blog/rule2drc/leaderboard/). It reports single-sample (Sample-1) success and error rates on the public set, with and without the KLayout API documentation in context.
+
+To evaluate a model through any OpenAI-compatible API (e.g., [OpenRouter](https://openrouter.ai)):
+
+```bash
+export OPENROUTER_API_KEY=sk-or-...
+bash scripts/leaderboard/run_eval.sh openai/gpt-oss-120b medium
+```
+
+This generates one DRC script per problem in both context settings, evaluates them with KLayout, and prints the success/error rates along with a ready-to-paste leaderboard row. To submit a result, open an issue or pull request with the printed row.
+
 ## TODO
 
-- [ ] Build a public leaderboard website.
+- [x] Build a public leaderboard website.
 - [ ] Add private held-out tasks.
 - [ ] Evaluate additional models and upload their results.
 
