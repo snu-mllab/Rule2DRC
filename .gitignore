@@ -34,6 +34,7 @@ refs/layout
 .env
 output/
 logs/
+private_gen/
 hf_dataset/
 /summarize*.py
 uv.lock

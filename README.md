@@ -194,12 +194,6 @@ bash scripts/leaderboard/run_eval.sh openai/gpt-oss-120b medium
 
 This generates one DRC script per problem in both context settings, evaluates them with KLayout, and prints the success/error rates along with a ready-to-paste leaderboard row. To submit a result, open an issue or pull request with the printed row.
 
-## TODO
-
-- [x] Build a public leaderboard website.
-- [x] Evaluate additional models and upload their results.
-- [ ] Add private held-out tasks.
-
 ## Citation
 
 ```bibtex
