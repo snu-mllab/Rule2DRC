@@ -33,8 +33,9 @@ refs/rag/index*
 refs/layout
 .env
 output/
+logs/
 hf_dataset/
-summarize*.py
+/summarize*.py
 uv.lock
 problems_v5
 scripts/check_hf_materialization.py
