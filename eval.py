@@ -90,7 +90,7 @@ def eval_problem(
 
     # Metrics
     per_cat = {}
-    success = True
+    success = compiled == len(files)
     for c in cats:
         m = f1_from_counts(T[c], P[c])
         per_cat[c] = m
