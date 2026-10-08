@@ -220,7 +220,7 @@ def eval_deck_on_gds_dir(
 
     write_predicted_labels_csv(out_dir / "predicted_labels.csv", pred_rows, cats)
 
-    success = True
+    success = compiled == len(files)
     for c in cats:
         success &= (f1_from_counts(T[c], P[c])["f1"] == 1.0)
 
