@@ -125,6 +125,11 @@ def _eval_worker(task: tuple[int, str, str | None, str, bool]
     )
     return idx, result, mismatches
 
+def _select_deck(rule_path: Path | None, pid: str) -> Path | None:
+    if rule_path is not None and rule_path.is_dir():
+        return rule_path / pid / f"{pid}.drc"
+    return rule_path
+
 def main():
     t0 = time.time()
     ap = argparse.ArgumentParser()
@@ -136,7 +141,11 @@ def main():
         help="Restrict to specific problem ids (dir names). Accepts multiple ids per flag.",
         default=[],
     )
-    ap.add_argument("--rule", help="Override deck for all selected problems (path to .drc).")
+    ap.add_argument(
+        "--rule",
+        help="A DRC file shared by all selected problems, or a directory containing <id>/<id>.drc. "
+             "Defaults to each problem's gold deck.",
+    )
     ap.add_argument("--jobs", type=int, default=100, help="Parallel worker processes (problems in flight)")
     args = ap.parse_args()
 
@@ -164,8 +173,10 @@ def main():
             selected.append(match)
         specs = selected
 
-    deck_dir = Path(args.rule).name if args.rule else "gold"
-    rule_root = Path(args.rule) if args.rule else None
+    rule_path = Path(args.rule) if args.rule is not None else None
+    if rule_path is not None and (not args.rule or not (rule_path.is_file() or rule_path.is_dir())):
+        ap.error(f"--rule must point to an existing file or directory: {args.rule or '<empty>'}")
+    deck_dir = rule_path.name if rule_path is not None else "gold"
     jobs = max(1, int(args.jobs or 1))
 
     results: list[dict] = [None] * len(specs)
@@ -173,7 +184,7 @@ def main():
     if jobs == 1:
         for idx, sp in enumerate(specs):
             pid = sp.parent.name
-            deck_path = (rule_root / pid / f"{pid}.drc") if rule_root else None
+            deck_path = _select_deck(rule_path, pid)
             out_path = out_dir / deck_dir / pid
             result, mismatches = eval_problem(sp, deck_path, out_path, show_progress=True)
             results[idx] = result
@@ -185,7 +196,7 @@ def main():
             task_q = deque()
             for idx, sp in enumerate(specs):
                 pid = sp.parent.name
-                deck_path = (rule_root / pid / f"{pid}.drc") if rule_root else None
+                deck_path = _select_deck(rule_path, pid)
                 out_path = out_dir / deck_dir / pid
                 task_q.append((idx, str(sp), str(deck_path) if deck_path else None, str(out_path), False))
 
